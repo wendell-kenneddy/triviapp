@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="author" content="Wendell Kenneddy" />
+    <meta
+      name="description"
+      content="Test your knowledge with fun questions."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Triviapp" />
+    <meta property="og:site_name" content="Triviapp" />
+    <meta
+      property="og:description"
+      content="Test your knowledge with fun questions."
+    />
+    <meta property="og:url" content="https://triviappwk.vercel.app/" />
+    <meta property="og:locale" content="en-US" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Triviapp" />
+    <meta
+      property="twitter:description"
+      content="Test your knowledge with fun questions."
+    />
+    <meta property="twitter:url" content="https://triviappwk.vercel.app/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Triviapp</title>
+    <link rel="canonical" href="https://triviappwk.vercel.app/" />
+    <link rel="manifest" href="/manifest.json" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img src="/logo.png" alt="Logo" width="73" height="24" />
+
+        <h1>Test your knowledge</h1>
+      </header>
+
+      <main>
+        <form id="quiz-form">
+          <h2 class="sr-only">Customize your quiz</h2>
+
+          <div class="input-group">
+            <div class="control-group">
+              <label for="category">Category</label>
+              <select name="category" id="category">
+                <option value="general_knowledge" selected>
+                  General knowledge
+                </option>
+                <option value="music">Music</option>
+                <option value="sport_and_leisure">Sport and leisure</option>
+                <option value="film_and_tv">Film and TV</option>
+                <option value="art_and_literature">Art and literature</option>
+                <option value="history">History</option>
+                <option value="society_and_culture">Society and culture</option>
+                <option value="science">Science</option>
+                <option value="geography">Geography</option>
+                <option value="food_and_drink">Food and drink</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="difficulty">Difficulty</label>
+              <select name="difficulty" id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" name="start">
+            Load questions
+            <span class="loader"></span>
+          </button>
+        </form>
+
+        <section>
+          <h2 class="sr-only">Questions</h2>
+
+          <ul id="questions-container"></ul>
+        </section>
+      </main>
+    </div>
+
+    <template id="question-template">
+      <li>
+        <div class="card-header">
+          <span id="question-index-display"></span>
+
+          <h3 id="question-title"></h3>
+        </div>
+
+        <div class="radio-group"></div>
+      </li>
+    </template>
+
+    <template id="control-group-template">
+      <div class="control-group">
+        <input
+          type="radio"
+          name="question-#-answer"
+          id="question-#-option-1"
+          value="answer-a"
+        />
+        <label for="question-#-option-1">Option 1</label>
+      </div>
+    </template>
+
+    <div id="score-container">
+      <p><span>Score:</span> 0/10</p>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
